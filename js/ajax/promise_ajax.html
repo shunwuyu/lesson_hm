@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="memberList"></ul>
+  <script>
+  const oUL = document.getElementById('memberList');
+  // 用ajax 拉取数据
+  const getJSON = function(url) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({message: 'ok'})
+      }, 3000)
+    })
+  }
+  // 基于promise 的
+  // fetch('https://api.github.com/orgs/lemoncode/members')
+  //   .then()
+  getJSON('https://api.github.com/orgs/lemoncode/members')
+    .then(data => {
+      console.log(data)
+    })
+  </script>
+</body>
+</html>

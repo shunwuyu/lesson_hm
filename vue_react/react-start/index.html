@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>React Counter Example</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <!-- 引入 Babel 编译 JSX 使用 BootCDN -->
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <!-- 应用程序挂载点 -->
+     <!-- 挂载点 -->
+    <div id="root"></div>
+    <script type="text/babel">
+    // 函数组件
+    const {
+      useState
+    } = React
+    function Counter() {
+      const [count, setCount] = useState(0) // 数据状态
+      // const count = 0;
+      const increment = () => {
+        setCount(count+1)
+      }
+      return (
+        <div>
+          Count: {count}
+          <button onClick={increment}>+1</button>
+        </div>
+      )
+    }
+    ReactDOM.render(<Counter />, document.getElementById('root'))
+    </script>
+</body>
+</html>
