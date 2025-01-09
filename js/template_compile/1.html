@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模版编译</title>
+</head>
+<body>
+<script>
+let template = '我是{{name}}, 年龄{{age}}，性别{{sex}}'
+let person = {
+  name: '嘎兰',
+  age: 12,
+  sex: '女'
+}
+// 规则 {{}} 正则 replace name person.name 
+// vue 挂载前 实例化过程 内存中 模版先编译 
+// function compile(template, data) {
+//   // 正则一个个字符匹配  1  第一个字符
+//   // [0-9] 匹配的范围 一个字符 0-9 任何一个数字 [] 一个 0-9 -  范围
+//   // 从字符串的开始匹配
+//   // 匹配{ 本身，由于{} 正则的特殊含义 所以需要转义  \
+//   // + 贪婪匹配一次或多次
+//   // () 分组
+//   console.log(template)
+//   // g 全局匹配 修饰符
+//   let reg = /\{\{([a-z]+)\}\}/
+//   // 字符串上的match 
+//   // console.log(template.match(reg))
+//   // console.log(reg.exec(template))
+//   // let key = reg.exec(template)[1]
+//   // let value = data[key]
+//   // console.log(value);
+//   // 正则替换 {{name}} -> value 
+//   // console.log(template.replace(reg, value))
+//   // let reg = /\{\{(\w+)\}\}/
+//   while(reg.test(template)){
+//         let key = reg.exec(template)[1];      // 第二项是分组匹配的内容
+//         let value = data[key];
+//         template = template.replace(reg,value);  // 更新
+//       }
+//       return template;
+// }
+// function compile(template, data) {
+            // 正则一个个字符匹配  1  第一个字符
+            // [0-9] 匹配的范围 一个字符 0-9 任何一个数字 [] 一个 0-9 -  范围
+            // 从字符串的开始匹配
+
+            // const reg = /\{\{(\w+)\}\}/g;
+
+            // 使用 replace 方法遍历所有匹配项
+            //这是与整个正则表达式相匹配的子字符串。
+            // 如果正则表达式中包含捕获组（即用圆括号()包围的部分），那么path将代表第一个捕获组所匹配的文本。
+            // match 和 path 参数是由replace方法基于正则表达式的匹配结果自动生成并传递给回调函数的。
+        //     return template.replace(reg, (match, path) => {
+        //       console.log(match, path)
+        //         return path in data ? data[path] : '';
+        //     });
+
+        // }
+
+function compile(template, data) {
+  // 正则表达式
+  const reg = /\{\{(\w+)\}\}/;
+  // console.log(Object.prototype.toString.call(reg))
+  if (reg.test(template)) {
+    const name = reg.exec(template)[1]; // 拿到分组中的key （） 
+    template = template.replace(reg, name in data ? data[name]: "")
+    return compile(template, data)
+  } else {
+    return template; // 退出条件
+  }
+}
+
+console.log(compile(template, person));
+</script>
+</body>
+</html>
