@@ -32,4 +32,22 @@
     最佳用户体验是快 
     按需加载页面级别组件 import函数引入方式 () => import('')
   - 路由守卫
-     
+- 表单组件
+  - 看文档 
+  - :model 收集表单数据 
+  - ref 获取表单实例
+    - 有时候要获取DOM元素， 组件对象
+    - 调用相应的方法
+    - template 用ref 标记DOM | 组件
+    - const formRef = ref(null) 挂载前就为null
+    - 挂载后就拿到了 
+  - 表单的校验
+    - rules
+    - items prop 
+    - valid 方法  boolean  
+- 布局组件
+  - ElContainer
+  - ElAside
+  - ElMain
+  - ElRow
+  - ElCol

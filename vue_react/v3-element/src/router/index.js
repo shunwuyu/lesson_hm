@@ -45,10 +45,10 @@ const router = createRouter(
 // 路由守卫
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || "掘金"
-  if (to.meta.requireLogin) {
-    next('/login')
-    return
-  }
+  // if (to.meta.requireLogin) {
+  //   next('/login')
+  //   return
+  // }
   next()
 })
 
