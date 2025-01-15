@@ -22,6 +22,8 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
+import { login } from '../api/';
+
 const formRef = ref(null);
 // 表单数据
 const form = reactive({
@@ -42,9 +44,21 @@ const loading = ref(false);
 const onSubmit = async () => {
   // console.log(formRef.value)
   loading.value = true
-  await formRef.value.validate((valid) => {
+  await formRef.value.validate(async (valid) => {
+    // 放松请求给后端？ 
+    // 账号，密码数据库是否匹配 
+    // 发送给前端一个凭证 token
+    // 以后的请求 都需要携带这个凭证
+    // 服务器解析凭证 得到用户对象
     if (valid) {
       console.log('验证成功');
+      const res = await login(form);
+      console.log(res);
+      if (res.data.code == 200) {
+        console.log(res.data.data);
+      } else {
+        console.log(res.data.message);
+      }
     } else {
       console.log('验证失败');
     }
