@@ -83,4 +83,29 @@
   - sign 签发 
   - token -> verify 方法 返回用户对象 name  avatar。。。。。
 
+- 基于mock 前后端通信的工作流程
+  - vitejs 启用 viteMockServe 插件
+  - mock 目录下的文件 申明模拟后端接口
+  - api 目录下 编写了接口的封装 axios 
+  - 前端组件onMounted 生命周期 发起接口请求
+  
+- 需要验证用户身份的接口
+  - token 在localStorage 中
+  - ?token=${token} 每个请求都得带上 烦
+  - req 请求行， 请求头 请求体（post get没有）
+  - 请求头  Authorization: Bearer ${token}  专属头Authorization
 
+- 怎么做登录的？
+  - cookie + session 传统  安全问题
+  - jwt 更适合现在
+    - 登录的本质是身份认证
+    - 得到一个身份 用户？
+    - 表单提交登录请求， username, password 
+    - jwt sign 方法 签发一个token 给登录请求, 用户对象，secret 加密
+      token 
+    - token放到localStorage 中
+    - 每个请求都带上token， axios 的 拦截器来负责 headers 设置Authorization字段
+    - 后端 req 解出 设置Authorization字段 token
+    - 调用 verify 方法 返回用户对象
+      - 后端知道身份
+      - 前端也可以得到用户对象

@@ -7,3 +7,11 @@ import request from './request.js'
 export const login = (body) => request.post('/api/login', body).then(res => {
   return res;
 })
+// 协议 域名  端口          路径           queryString 参数
+// http://localhost:5173/api/getUserInfo?token=12312
+
+export const getUserInfo = () => request.get('/api/getUserInfo').then(res => {
+  return res;
+})
+
+
