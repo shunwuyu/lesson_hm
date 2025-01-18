@@ -11,6 +11,8 @@ import { useRoute } from 'vue-router'
 const route = useRoute() // 当前路由
 // console.log(route);
 const { postId } = route.params // 参数对象
+console.log(postId)
+
 </script>
 
 <style scoped>
