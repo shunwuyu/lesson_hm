@@ -10,3 +10,18 @@
   - RouteRecordRow 类型约束 
   - redirect 重定向 /home
 - src/shims-vue.d.ts 
+- vant UI 组件库 
+  - element-ui 不太一样 包小，更快
+    按需加载 .use(list) 
+    
+  - vite 工程化
+    预先加载UI组件库 更快
+    vant 
+    @vant/auto-import-resolver
+    vite 支持 
+    Components({
+      resolvers: [
+        VantResolver()
+      ]
+    })
+
