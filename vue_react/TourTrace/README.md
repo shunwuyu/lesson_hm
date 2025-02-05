@@ -24,4 +24,9 @@
         VantResolver()
       ]
     })
-
+- 移动端 App 
+  - vant 适合移动端  element-ui PC 端
+  - 路由 根App -> router-view -> KeepAlive->  redirect -> Home  
+  - 图标字体库 iconfont 由阿里提供
+    - 在线选择需要的图标
+  - 组件 + 状态专利(pinia)

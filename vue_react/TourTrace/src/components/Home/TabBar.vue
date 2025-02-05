@@ -13,8 +13,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+
 const active = ref<number>(1);
+onMounted(() => {
+  const route = useRoute();
+  console.log(route.fullPath)
+  if (route.fullPath === "/home") {
+    active.value = 1;
+  } else if (route.fullPath === "/shopping") {
+    active.value = 2;
+  } else if (route.fullPath === "/mine") {
+    active.value = 3;
+  }
+})
 </script>
 
 <style scoped>
