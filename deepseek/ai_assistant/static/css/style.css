@@ -1,4 +1,70 @@
+/* 全局样式*/
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #333;
+}
+/* 聊天容器 */
+.chat-container {
+  width: 100%;
+  max-width: 1200px; /*responsive 自适应*/
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);/*alpha*/
+  padding: 32px;
+  display: grid;/*网格布局 二维*/
+  grid-template-columns: 3fr 1fr;
+  gap: 32px;
+  margin: 20px;
+  transition: all 0.3s ease; /*过渡效果 animation*/
+}
+/* 媒体查询 768 ipad 竖着拿   375 iphone   */
+@media (max-width: 768px) {
+  .chat-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+  }
+}
+/* 标题 */
+h1 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
+}
+/* 按钮样式 */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none; /*轮廓 看过去像border,不占盒子模型大小 reset 一部分 */
+  color: #fff;
+  background-color: #0056b3;
+  border:none;
+  border-radius: 12px;
+  box-shadow: 0 9px #999;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #004a8c;
+}
+
+.button:active {
+  background-color: #004a8c;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

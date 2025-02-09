@@ -63,9 +63,43 @@
   2XX 成功  201 Created 
   3XX 重定向
   4XX 客户端错误 
+    405 Method Not Allowed 方法不允许
+    代码不会出问题
   5XX 服务器错误
 
   响应头第一个数据包 浏览器或程序 就通过状态码知道怎么处理
   程序逻辑的一部分
 
 - env
+
+## 界面
+
+- html 结构
+  - 写注释
+  - 图标字体库 font-awesome iconfont
+    - 性能优化
+    - 小图标都用图片，http 请求数的暴涨，网页同时并发请求数是有上限的
+    - 下载一个图标字体文件 
+    - fas fa-comment-alt  
+    - font-awesome 不提供选择， 都是一样的 
+  - css 样式的组合 面向对象特性 多态 方便复用和维护
+    tailwindcss 原子类
+  - textarea LLM 支持比较多的tokens 出入长度 kimi deepseek
+  - 语义化标签
+- css 
+  - 弹性布局
+    - 居中
+    - flex-direction: row|column
+    - align-items 纵轴
+    - justify-content 横轴 flex-start space-between 
+  - grid 布局
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap 24px
+  - 响应式布局
+    width max-width 
+    @media screen and (max-width: 768px) {
+      
+    }
+  - transition animation 
+    - width transition ipad 旋转屏幕
