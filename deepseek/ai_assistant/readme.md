@@ -103,3 +103,29 @@
     }
   - transition animation 
     - width transition ipad 旋转屏幕
+    - transition: 多个属性分别设置
+  - 面向对象思想
+    - 封装 多态 继承
+    - button 样式组件 基础样式
+      UI风格 antd 
+    - 组合业务样式
+      primary secondary default -> tailwindcss 原子类
+  - calc
+    CSS中执行简单的数学运算,用于动态布局设计中精确控制元素大小与位置。
+    性能有一点的问题， 不能滥用， 涉及不必要的重绘重排
+  - flex: 1;
+    flex-grow 1 其他子元素没有设置， 主元素，其他元素占完后，剩下的都归他来grow ; 多个子元素都设置 按比例划分。
+    flex-basis
+    flex-shrink
+
+- 代码风格
+  - 注释
+  - 封装 
+    - 一个函数只做一件事
+    - 一个函数不超过10行
+## 业务
+  - 界面业务
+    - grid布局
+    - transition
+    - css 面向对象
+  - scrollToTop 业务

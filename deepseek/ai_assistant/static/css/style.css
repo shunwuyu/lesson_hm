@@ -42,7 +42,7 @@ h1 {
   font-size: 28px;
   font-weight: 700;
 }
-/* 按钮样式 */
+/* 按钮样式  基础样式 */
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -67,4 +67,158 @@ h1 {
   background-color: #004a8c;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+/* secondary 按钮业务 primary default ....*/
+.button.secondary {
+  background-color: #e0f7fa;
+  color: #0056b3;
+  border: 1px solid #0056b3;
+}
+
+.button.secondary:hover {
+  background-color: #d4f0f7;
+} 
+.button.button.secondary:active {
+  background-color: #c8e9f4;
+}
+
+/* 聊天记录 */
+.chat-left {
+  display: flex;
+  flex-direction: column;/*设置主轴为纵轴*/
+  height: calc(100vh - 104px);/*高度 css 内置函数的*/
+  position: relative;
+}
+
+.chat-log {
+  flex-grow: 1; /* flex: 1 */
+  overflow-y: auto; /* 溢出滚动 垂直方向*/
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 65px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  word-wrap: break-word; /* 确保长单词可以换行*/
+  height: 750px;
+}
+
+/* 输入区域 */
+.input-area {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
+  box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.input-with-icon textarea {
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 12px 0 0 12px;
+  font-size: 16px;
+  /* box-sizing: border-box;盒模型的计算方式 IE盒模型和标准盒模型 */
+  resize: none;
+  outline: none;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+
+.send-icon {
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  color: #0056b3;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 12px 12px 0;
+}
+
+.send-icon:hover {
+  color: #004a8c;
+}
+
+.send-icon:focus {
+  outline: none;
+}
+
+/* 加载指示器 */
+.loading-indicator {
+  text-align: center;
+  margin-top: 20px;
+  color: #aaa;
+  display: none;
+}
+
+/* 回到顶部按钮*/
+.back-to-top {
+  position: fixed; 
+  bottom: 30px;
+  right: 30px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: none;
+}
+
+.back-to-top:hover {
+  background-color: #004a8c;
+  transform: translateY(-5px);
+}
+
+/* message*/
+.message {
+  display: flex;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.assistant {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  word-wrap: break-word; /* 确保文本换行 */
+  white-space: pre-wrap;/*保留空白符序列，并允许文本换行*/
+  position: relative;
+}
+
+.user-bubble {
+  background-color: #e0f7fa;
+  color: #0056b3;
+}
+
+.assistant-bubble {
+  background-color: #f5f5f5;
+  color: #333;·
 }
