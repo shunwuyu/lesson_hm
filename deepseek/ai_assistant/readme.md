@@ -85,7 +85,13 @@
   - css 样式的组合 面向对象特性 多态 方便复用和维护
     tailwindcss 原子类
   - textarea LLM 支持比较多的tokens 出入长度 kimi deepseek
-  - 语义化标签
+  - html5 
+    - 语义化标签
+    - 无障碍访问 
+      label + for 
+    - form 表达增强功能
+      input  type [number|range....]
+      placeholder 
 - css 
   - 弹性布局
     - 居中
@@ -118,14 +124,62 @@
     flex-basis
     flex-shrink
 
+- js 
+  - 用户体验
+    - keydown enter 阻止默认行为
+    - event.preventDefault
+  - promise 的使用
+    await 后面的肯定是promise 或返回promise实例的函数 
+    then 链式调用
+      处理函数返回的任然是promise 链式调用
+      如果不是呢？ promise.resolve()包一下
+  - BOM
+    - navigator.userAgent
+    操作系统 浏览器版本 内核 
+    - navigator.clipboard 
+  - localStorage
+    - 本地存储 
+    - 本地存储的大小 5M 4096kb  4096 * 1024 4M  cookie kb 带上
+    - getItem(null) null  
+    - setItem
+  - array, string 方法强化一下
+    slice 负数 
+  - event 事件机制
+    - dom level 和 event 两个带年 dom level 涉及和event 相关的定义
+    - onclick(内嵌 DOM level 0) addEventListener(事件监听 DOM 2 )
+    - 小红书（JS高级程序设计）
+    - 事件冒泡| 捕获
+    - 事件委托
+      事件监听 内存开销比较大的
+      - 利用冒泡机制 父元素上 监听一次 性能好 事件委托 
+      - event.target 目标元素 data-index 数据属性 
+
+- 产品需求
+  - 产品经理提出产品需求
+  - 设计师 界面设计 
+  - 前端 vue/react 完成需求
+    - 分析
+    - 技术设计
+    - 代码实现
+    - debug 
+    - 交付上线
+  - 后端 数据和mvc 提供api
+
 - 代码风格
   - 注释
   - 封装 
     - 一个函数只做一件事
     - 一个函数不超过10行
+  - es6+ 风格
+    promise + async/await 
 ## 业务
   - 界面业务
     - grid布局
     - transition
     - css 面向对象
   - scrollToTop 业务
+  - 发消息业务
+  - 流式输出
+  - 剪贴版功能
+  - 聊天历史分组功能
+    - localStorage chatLog

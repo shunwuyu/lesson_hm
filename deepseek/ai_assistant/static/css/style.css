@@ -220,5 +220,83 @@ h1 {
 
 .assistant-bubble {
   background-color: #f5f5f5;
-  color: #333;·
+  color: #333;
 }
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #0056b3;
+  transition: color .3s ease;
+  z-index: 1;
+}
+
+/* 对话历史列表 */
+#conversation-list {
+  height: 280px;
+  overflow-y: auto; /* 垂直溢出滚动 */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  margin-top: 15px;
+}
+
+#conversation-list button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+/* 伪类选择器 */
+#conversation-list button:hover {
+  background-color: #e0e0e0;
+}
+
+#conversation-list  .delete-btn {
+  float:right;
+  color: #f44;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#conversation-list  .delete-btn:hover {
+  color: #c00;
+}
+
+/* # 输入样式 */
+
+.input-group {
+  margin-bottom: 16px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.input-group input:focus, .input-group select:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
