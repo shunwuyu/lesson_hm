@@ -103,6 +103,35 @@
       黑客使用我们cookie 访问某网站， 安全问题
       <script>   <  &lt;
     - secure 安全的cookie  https 协议下才会带上
+## 业务开发
+- NavBar组件
+  - components 公共组件 
+  - zarm TabBar TabBar.Item
+    activeKey itemKey
+  - change setActiveKey 
+  - icon 
+    - iconfont 定制
+- CustomIcon 的组件
+  Icon.createFromIconfont
+- react-router-dom
+  useNavigate  hook 
+  navigateTo('/user')
+  必须放到router 组件内
+
+- 单页应用 SPA single page application 看过去像一个页面， 移动端 
+  - 传统的a 标签 刷新页面 服务器重新渲染， 所有的html, 白屏 慢 体验不好
+  - vue/react 优化体验
+    - 不能白屏 不要去刷新整个页面 NavBar 
+      HashRouter HistoryRouter 支持 hashChange pushState
+      不用a 标签， 由router 统一管理
+    - Routes router-view  一副牌 看到最上面一张 
+
+- react props 类型约束
+  - prop-types
+  - 函数组件对象 propTypes 属性 
+  - PropTypes.bool
+
+- 
       
 
     
