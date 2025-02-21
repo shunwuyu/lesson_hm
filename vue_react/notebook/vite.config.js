@@ -17,7 +17,14 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: 'dashesOnly'
-    }
+    },
+    preprocessorOptions: {
+      // 针对 Less 预处理器的配置
+     less: {
+       // 允许在 Less 文件中使用内联 JavaScript
+       javascriptEnabled: true,
+     }
+   }
   },
   resolve: {
     alias: {

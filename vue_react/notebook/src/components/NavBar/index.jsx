@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TabBar } from 'zarm';
+import s from './style.module.less';
 // 有哪些类型
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +16,7 @@ const NavBar = ({ showNav }) => {
   }
 
   return (
-    <TabBar visible={showNav.toString()} activeKey={activeKey} onChange={changeTab}>
+    <TabBar className={s.tab} visible={showNav} activeKey={activeKey} onChange={changeTab}>
       <TabBar.Item
         itemKey="/"
         title="账单"
