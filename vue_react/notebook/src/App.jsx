@@ -15,7 +15,7 @@ import s from './App.module.less';
 export default function App() {
 
   const [showNav, setShowNav] = useState(false)
-  const needNav = ['/', '/data'];
+  const needNav = ['/', '/data', '/user'];
   const { pathname } = useLocation(); // 路由切换的路径
   // console.log(location);
   // 当url 切换为/user 的时候 showNav false 
