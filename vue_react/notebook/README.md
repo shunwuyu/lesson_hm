@@ -283,3 +283,39 @@
     CRUD
   - model 
     User 
+
+- egg.js api 服务
+  - 路由 
+    http 协议 
+  - controller
+    extends Controller
+    参数校验、 业务逻辑...
+    返回接口需要的json 数据
+  - model
+    模型定义 table -> model
+  - service 
+    数据库操作 CRUD
+  - view
+    api 服务， 后端不负责界面, react 负责
+
+- 登录注册
+  - 密码加密
+    不能存明文， 单项加密
+  - jwt json web token
+    {
+      id:1,
+      username: 'chen',
+      level: 'lv5',
+      exp: 1694355688,
+    }
+    jwt sign token 
+    后端签发 
+    - secret 加密 服务器端才能解开
+    - 40几位的加密串
+    前端localStorage 存
+    axios 请求 拦截在请求头中
+    authorization: token(localStorage)
+    后端verfify token -> json  user
+
+    - egg-jwt jsonwebtoken
+   

@@ -17,6 +17,19 @@ class UserService extends Service {
       return null
     }
   }
+
+  async register(user) {
+    const { ctx } = this
+    try {
+      // orm 
+      // sequelize
+      const result = await ctx.model.User.create(user)
+      return result
+    } catch(err) {
+      console.log(err);
+      return null;
+    }
+  }
 }
 
 module.exports = UserService;
