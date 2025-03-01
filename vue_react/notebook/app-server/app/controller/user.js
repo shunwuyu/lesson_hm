@@ -62,7 +62,7 @@ class UserController extends Controller {
     // 参数
     const { ctx, app } = this;
     const { username, password } = ctx.request.body;
-
+    console.log(username, password, '---------------');
     if (!username || !password) {
       ctx.body = {
         code: 400,
@@ -110,6 +110,73 @@ class UserController extends Controller {
     }
   }
   
+  async editSignature() {
+    const { ctx } = this;
+    console.log(ctx.user, '?????/')
+    if  (!ctx.user) {
+      ctx.body = {
+        code: 401,
+        msg: '请先登录',
+        data: null
+      }
+      return;
+    }
+
+    const { signature } = ctx.request.body;
+    if (!signature) {
+      ctx.body = {
+        code: 400,
+        msg: '签名不能为空',
+        data: null
+      }
+      return;
+    }
+    try {
+      const result = await ctx.service.user.editUserInfo(
+        ctx.user.username, 
+        signature
+      )
+      ctx.body = {
+        code: 200,
+        msg: '修改成功',
+        data: result
+      }
+    }catch(err) {
+      ctx.body = {
+        code: 500,
+        msg: '修改失败',
+        data: null
+      }
+    }
+    
+  }
+
+  async getUserInfo() {
+    const { ctx } = this;
+    if (!ctx.user) {
+      ctx.body = {
+        code: 401,
+        msg: '请先登录',
+        data: null
+      }
+      return;
+    }
+    try {
+      const result = await ctx.service.user.getUserByName(ctx.user.username)
+      ctx.body = {
+        code: 200,
+        msg: '获取成功',
+        data: result
+      }
+    } catch(err) {
+      ctx.body = {
+        code: 500,
+        msg: '获取失败',
+        data: null
+      }
+    }
+    
+  }
 
 }
 

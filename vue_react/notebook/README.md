@@ -319,3 +319,37 @@
 
     - egg-jwt jsonwebtoken
    
+- 登录
+  - 前端 Login组件 submit
+  - api/login 全部的请求都在这
+    /login { username, password}
+  - utils/axios
+    - baseURL  /api/login
+    - /api 后端提供的接口地址的标志，前后端分离
+    - 不带/api, 前端路由react-router-dom 管理
+  - axios 请求 被vite 配置的server 拦截
+    proxy 解决了跨域问题
+    rewrite /api 干掉了 
+  - 后端提供接口，后端也可以不只提供接口， 自己的mvc 
+
+- 修改用户slogan 
+  全栈功能  前端修改表单 
+  后端 Update + MVC 
+  - 前后端分离
+    - 先后端
+      - 提供一个修改slogan的接口
+        - 路由
+          restful api 一切皆资源  设计url的一种规范
+        - 中间件  鉴权
+          拦在控制器之前 token -> verify user 挂在ctx上， next
+        - 控制器
+        - service
+          - model 已创建
+          - orm  sequelize  
+          数据库操作
+        - apifox 请求模拟器
+
+    - 再前端
+      - 路由
+      - userinfo 组件
+      - api  editUserInfo
