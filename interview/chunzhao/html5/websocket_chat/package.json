@@ -1,0 +1,16 @@
+{
+  "name": "websocket_chat",
+  "version": "1.0.0",
+  "description": "- TCP/IP 是传输层协议，   建立连接 三次握手， 四次挥手 - HTTP 协议， 而 Socket 是应用层协议。    - 长链接   - 消息推送   - 广播 - B/S 架构 - 即时通讯  Socket 协议",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.16.0",
+    "koa-websocket": "^7.0.0"
+  }
+}

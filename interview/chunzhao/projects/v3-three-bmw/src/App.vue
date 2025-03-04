@@ -69,10 +69,8 @@ onMounted(() => {
 
   loader.load("../../public/roadSter/model/bmw01.glb", gltf => {
     const bmw = gltf.scene;
-    
     scene.add(bmw);
   })
-
 
 })
 

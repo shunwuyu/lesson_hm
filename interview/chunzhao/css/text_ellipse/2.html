@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .truncate-multiline{
+    width: 200px;
+    /* 浏览器内核 前缀 实验属性 */
+    display: -webkit-box;/* box布局模型*/
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  </style>
+</head>
+<body>
+  <div class="truncate-multiline">
+  这是一个很长的文本示例， 他将被截断并用省略号显示。这是一个很长的文本示例， 他将被截断并用省略号显示。这是一个很长的文本示例， 他将被截断并用省略号显示。这是一个很长的文本示例， 他将被截断并用省略号显示。
+  </div>
+</body>
+</html>
