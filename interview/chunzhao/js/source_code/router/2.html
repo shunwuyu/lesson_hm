@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav id="nav">
+    <ul>
+      <li><a href="#/page1">page1</a></li>
+      <li><a href="#/page2">page2</a></li>
+      <li><a href="#/page3">page3</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div id="container"></div>
+  </main>
+  <footer>
+
+  </footer>
+  <script>
+  class HashRouter {
+    constructor() {
+      // 路由配置
+      this.routes = {};
+      // this 丢失  bind  事件处理函数需要的是函数
+      window.addEventListener('hashchange', this.load.bind(this), false)
+    }
+    register(hash, callback = function() {}) {
+      this.routes[hash] = callback;
+    }
+    registerIndex(callback=function() {}) {
+      this.routes['/index'] = callback;
+    }
+    // 模块化
+    load() {
+      // console.log(this);
+      // BOM 对象
+      let hash = window.location.hash.slice(1) || '/index';
+      // console.log(hash); -> 去routes 查一下
+      let callback = this.routes[hash]
+      // console.log()
+      callback.call(this);
+    } 
+  }
+  const router = new HashRouter();
+  router.registerIndex(() => container.innerHTML = '我是首页')
+  router.register('/page1', function() {
+    console.log('page1');
+    document.getElementById('container').innerHTML = 'page1';
+  })
+  router.register('/page2', function() {
+    console.log('page2');
+    console.log(this);
+    document.getElementById('container').innerHTML = 'page2';
+  })
+  router.register('/page3', function() {
+    console.log('page3');
+    document.getElementById('container').innerHTML = 'page3';
+  })
+  router.load()
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+  }
+  .box::before {
+    content: "";
+    position: absolute;
+    bottom:0;
+    right: 0;
+    left: 0;
+    border: 10px solid #000;
+    transform: scaleY(0.5);
+    /* 不动点 */
+    transform-origin: bottom center;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

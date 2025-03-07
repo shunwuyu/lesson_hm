@@ -36,6 +36,7 @@
 ## CSS 
 - 怎么实现样式隔离
 - css3 新特性
+- 0.5px 怎么实现
 
 ## HTML5 
 - websocket-chat
@@ -44,4 +45,31 @@
 - v-if/v-show 的区别
 - vue 组件通信
 
-## 
+## 源码
+- 路由
+
+## 性能优化
+- 十万条数据怎么渲染？
+
+## LLM 
+- 流式输出
+  - openai 等接口  completion/chat stream: true
+  - 边生成边输出 流式输出 
+  - 大模型思考时间 用户体验， 流式输出更好。
+  - 大模型是基于token AIGC生成的
+    神经网络一个一个token生成，后面的token 基于前面的token 推理出来的
+  - 网络层的
+    Http 0.9
+    HTTP 1.0
+    HTTP 1.1
+    HTTP 2.0 服务器推送
+    HTTP/2 服务器推送允许服务器主动向客户端发送数据，而无需等待客户端明确请求，从而提高页面加载速度和性能。
+    HTTP 3.0 
+    TCP/IP（可靠的 所有的数据帧到达（丢包 重传）， 按顺序， ） 区别于 UDP (数据暴， 视屏 直播 丢包)
+  - 后端
+    路由
+    响应头 text/event-stream keep-alive 
+    ctx.res.write(`data:${chunk}`)
+  - 前端
+    不再是一次性返回 
+

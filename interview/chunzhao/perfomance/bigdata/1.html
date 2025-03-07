@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  li {
+    border-bottom: 1px solid #ccc;
+    color: red;
+  }
+  </style>
+</head>
+<body>
+<!-- 大数据 极限的 不能常规处理 -->
+<ul id="container"></ul>
+<script>
+// 宏任务
+let now = new Date();
+const total = 100000;
+let ul = document.getElementById('container');
+for (let i = 0; i < total; i++) {
+  let li = document.createElement('li');
+  li.innerText = i;
+  ul.appendChild(li)
+}
+let end = new Date();
+// JS 执行时间
+console.log(end - now);
+setTimeout(() => {
+  console.log(new Date() - now, '-------------')
+}, 0)
+Promise.resolve().then(() => {
+  console.log('+++++++++++++++')
+})
+</script>
+</body>
+</html>

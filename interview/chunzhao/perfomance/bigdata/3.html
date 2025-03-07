@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAnimationFrame Example</title>
+  <style>
+    #movingBox {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="movingBox"></div>
+
+  <script>
+    let start = null;
+    const box = document.getElementById('movingBox');
+    const speed = 2; // 每帧移动的像素数
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+
+      // 计算方块的新位置
+      const newPosition = (elapsed / 10) * speed;
+      
+      // 更新方块的位置
+      box.style.left = `${newPosition}px`;
+
+      // 如果方块还没有移出视口，则继续请求下一帧
+      if (newPosition < window.innerWidth) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    // 启动动画
+    // 按帧执行 接受一个函数
+    requestAnimationFrame(step);
+  </script>
+</body>
+</html>
