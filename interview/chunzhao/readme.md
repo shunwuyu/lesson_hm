@@ -33,18 +33,24 @@
 
 - 数组去重 
 - event loop 顺序
+- 5script defer async 
 
 ## CSS 
 - 怎么实现样式隔离
 - css3 新特性
 - 0.5px 怎么实现
+- inline 
+  demo1
 
 ## HTML5 
 - websocket-chat
+- localStorage、sessionStorage、Cookie 的大小，区别
+  
 
 ## VUE 
 - v-if/v-show 的区别
 - vue 组件通信
+- vue 响应式
 
 ## 源码
 - 路由
@@ -75,3 +81,7 @@
     不再是一次性返回 
 ## 场景题目
 - 类型判断
+
+## 408
+- b.com 上携带cookie 在b.com下能不能拿到？
+  408/abcookie
