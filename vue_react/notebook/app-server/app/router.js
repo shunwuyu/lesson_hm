@@ -26,4 +26,6 @@ module.exports = app => {
   router.post('/bill', _jwt, controller.bill.add); // 添加账单
   router.patch('/bill/:id', _jwt, controller.bill.update ); // 更新账单
   router.delete('/bill/:id', _jwt, controller.bill.delete ); // 删除账单
+  router.get('/bill/:id',controller.bill.detail ); // 账单详情
+  
 };

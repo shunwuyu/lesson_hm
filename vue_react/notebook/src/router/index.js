@@ -3,7 +3,7 @@ import Data from '@/views/Data'
 import User from '@/views/User'
 import Login from '@/views/Login'
 import UserInfo from '@/views/UserInfo'
-
+import Detail from '@/views/Detail'
 const routes = [
   {
     path: '/',
@@ -28,6 +28,10 @@ const routes = [
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/detail/:id',
+    component: Detail
   }
 ]
 

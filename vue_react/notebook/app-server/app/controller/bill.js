@@ -91,6 +91,32 @@ class BillController extends Controller {
   async  delete() {
      
   }
+
+  async detail() {
+    const { ctx } = this;
+    const { id } = ctx.params;
+    // console.log(id);
+    if (!id) {
+      ctx.body = {
+        code: 400,
+        msg: '参数错误'
+      }
+      return;
+    }
+    try {
+      const result = await ctx.service.bill.detail(id)
+      ctx.body = {
+        code: 200,
+        msg: '获取成功',
+        data: result
+      }
+    } catch(err) {
+      ctx.body = {
+        code: 500,
+        msg: '服务器内部错误'
+      }
+    }
+  }
 }
 
 module.exports = BillController;
