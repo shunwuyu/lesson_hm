@@ -22,3 +22,12 @@
   - reactive() 封装普通对象
   - proxy 对象的代理
   - 收集依赖（effect ）
+
+- proxy 比defineProperty 优势
+  - 懒代理
+    多级菜单 性能更好
+    支持深度代理， 递归
+    defineProperty 性能不好， 必须一次性完成深度代理
+  - reactive shallowReactive
+
+- ref ? 

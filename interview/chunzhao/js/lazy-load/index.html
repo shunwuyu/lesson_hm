@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .image-item {
+    display: block;
+    margin-bottom: 50px;
+    height: 200px;
+  }
+  </style>
+</head>
+<body>
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250313/v2_15ad8ef9eca34830b4a2e081bbc7f57a@000000_oswg172644oswg1536oswg722_img_000?x-oss-process=image/resize,m_mfit,w_960,h_400,limit_0/crop,w_960,h_400,g_center" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_aeaa7a1d51e74c3a8f909c96cd73a687@000000_oswg169950oswg1440oswg600_img_jpeg?x-oss-process=image/format,webp" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_1c88dc26ff9341cf8738d670896ce3a8@5284654_oswg847922oswg1440oswg600_img_png?x-oss-process=image/resize,m_mfit,w_960,h_400,limit_0/crop,w_960,h_400,g_center/format,webp" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_e1d92f43af2c4f47b8852ea8786e606f@6100851_oswg635095oswg1053oswg495_img_png?x-oss-process=image/resize,m_mfit,w_960,h_400,limit_0/crop,w_960,h_400,g_center/format,webp" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250307/v2_9295b22d4a1b4b55ac4c3379b2da80cc@6100851_oswg781048oswg1053oswg495_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center/format,webp" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250306/v2_6ea048ac01c3408a9ed6ebe79a8fc8a2@5888275_oswg849213oswg1053oswg495_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center/format,webp" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_e4c73b024bcc409fba427adb2d7fb2fa@000000_oswg1251602oswg1080oswg559_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_9f21750bb37243128b6b1790f9072649@000000_oswg1219724oswg1080oswg601_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_2acf9b228cd940c1b5fdb5691c0b6e4c@000000_oswg1402679oswg1080oswg527_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250312/v2_af4dd443d261445d8e903c473cac074c@000000_oswg1118331oswg1080oswg497_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250313/v2_e7de1cc8e8014122ba303ea036eea532@1743780481_oswg58583oswg1080oswg257_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <img src="" class="image-item" lazyload="true" data-original="https://img.36krcdn.com/hsossms/20250313/v2_0f70e0a75a8d4736a050e846cd6ab3e5@1743780481_oswg183216oswg1080oswg629_img_000?x-oss-process=image/format,jpg/interlace,1" />
+  <script>
+  // 1. 将img src 替换为 data-original
+  // 2. 将可视区的图片加载出来
+  // 3. onscroll 加载图片
+  var viewHeight = document.documentElement.clientHeight; // 可视区高度
+  var eles = document.querySelectorAll('img[data-original][lazyload]');
+  // console.log(eles);
+  function lazyload() {
+    Array.prototype.forEach.call(eles, function(item, index) {
+      var rect;
+      if (item.dataset.original === "") return;
+      // 相对于视口的位置
+      rect = item.getBoundingClientRect();
+      console.log(rect);
+      if (rect.bottom >= 0 && rect.top < viewHeight) {
+        (function() {
+          var img = new Image();
+          img.src = item.dataset.original;
+          img.onload = function() {
+            item.src = img.src
+          }
+          item.removeAttribute('data-original');
+          item.removeAttribute('lazyload');
+        })()
+      }
+    })
+  }
+  lazyload();
+  window.addEventListener('scroll', lazyload, false);
+  </script>
+</body>
+</html>
