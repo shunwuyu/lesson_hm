@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS Preflight Example</title>
+</head>
+<body>
+<script>
+var xhr = new XMLHttpRequest();
+// 复杂跨域请求
+xhr.open('PUT', 'http://localhost:3000/data', true);
+xhr.send(JSON.stringify({ key: 'value' }))
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      console.log(xhr.status, 'CORS Preflight successful');
+    } else {
+      console.error('CORS Preflight failed');
+    }
+  }
+}
+</script>
+</body>
+</html>
