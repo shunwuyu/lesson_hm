@@ -87,3 +87,9 @@
   408/abcookie
 
 ## git
+
+
+- 甘总-》财哥
+  rag + cursor + dify(agent) 
+  AI  产品观念
+- 
