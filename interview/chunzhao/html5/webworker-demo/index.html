@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html5 特性 Web Worker</title>
+</head>
+<body>
+<script>
+// 主线程外的工作线程
+// 耗时性的计算 启动一个新的线程去执行 
+// web worker 线程不可以访问dom 元素 只能通过postMessage 传递数据
+const myWorker = new Worker('./worker.js');
+// 基于消息机制  订阅发布者模式
+myWorker.addEventListener('message', (e) => {
+  console.log(e.data);
+})
+
+myWorker.postMessage('hello world');
+</script>
+</body>
+</html>

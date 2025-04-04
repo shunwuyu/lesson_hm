@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="parent">
+  <p>Original content</p>
+</div>
+<button onclick="changeContent()">Change Content</button>
+
+<script>
+  const observer = new MutationObserver(mutations => 
+    console.log('DOM changed:', mutations)
+  );
+  observer.observe(document.getElementById('parent'), { childList: true });
+
+  function changeContent() {
+    document.getElementById('parent').appendChild(document.createElement('p')).textContent = 'New content';
+  }
+</script>
+</body>
+</html>
