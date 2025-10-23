@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 // 实例化Openai
 const openai = new OpenAI({
   // 付费
-  apiKey:'sk-5PUDrQhFqCVr0KluhSbYcCgIx6S21dNcxGJOxhpo3BEtIhRw',
+  apiKey:'sk-Nyj0O5YmfQLkcHg0p6L5peB1nDDKvsAp07Q40v1x9IcNF0P8',
   // 国内转发
   baseURL: 'https://api.302.ai/v1'
 });

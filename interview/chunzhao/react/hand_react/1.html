@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function myIdleTask(deadline) {
+  console.log(deadline.timeRemaining());
+  while(deadline.timeRemaining() > 1 && tasks.length > 0) {
+    const task = tasks.shift();
+    console.log(`Processing ${task}`);
+  }
+  if (tasks.length > 0 ) {
+    requestIdleCallback(myIdleTask);
+  } else {
+    console.log('All tasks done!');
+  }
+}
+const tasks = Array.from({length: 2000000}, (_, i) => `Task ${i + 1}`);
+requestIdleCallback(myIdleTask);
+</script>
+</body>
+</html>
