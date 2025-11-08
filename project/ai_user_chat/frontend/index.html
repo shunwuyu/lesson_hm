@@ -53,25 +53,34 @@ fetch('http://localhost:3001/users')
   .then(res => res.json())
   .then(users => {
     usersData = users;
+    tableBody.innerHTML = users.map(user => `
+      <tr>
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.hometown}</td>
+      </tr>
+    `).join('');
     // console.log(data);
-    for (let user of users) {
+    // for (let user of users) {
       // console.log(user);
-      const tr = document.createElement('tr');
-      // for in json 对象遍历
-      for (let key in user) {
-        const td = document.createElement('td');
-        td.innerText = user[key];
-        tr.appendChild(td);
-      }
+      // const tr = document.createElement('tr');
+      // // for in json 对象遍历
+      // for (let key in user) {
+      //   const td = document.createElement('td');
+      //   td.innerText = user[key];
+      //   tr.appendChild(td);
+      // }
 
-      tableBody.appendChild(tr)
-    }
+      // tableBody.appendChild(tr)
+
+    // }
   })
 
   oForm.addEventListener('submit', e => {
     // 事件对象
     // console.log(e);
     e.preventDefault(); // 阻止表单默认行为
+    oForm.btn.disabled = true;
     // fetch 在页面不刷新的时候向ai server 发出请求
     // const question = oForm.question.value;
     // 发送数据到后端
@@ -88,6 +97,9 @@ fetch('http://localhost:3001/users')
         console.log(data)
         document.getElementById('message').innerText = 
           data.result;
+      })
+      .finally(() => {
+        oForm.btn.disabled = false;
       })
   })
 </script> 

@@ -1,10 +1,15 @@
 // node 内置的http 模块 
-const http = require('http');
-const OpenAi = require('openai');
-const url = require('url');// node 内置
+import http from 'http';
+import OpenAI from 'openai';
+import url from 'url';
+import { config } from 'dotenv';
 
-const client = new OpenAi({
-  apiKey: 'sk-2br8WRKLJx86xrViCWO5WTCU6vVQhIcdG2a5k4r8MvRzmCS6',
+config({
+  path: './.env'
+});
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
   baseURL: 'https://api.agicto.cn/v1'
 });
 
@@ -26,12 +31,13 @@ const getCompletion =  async (prompt, model="gpt-3.5-turbo") => {
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // 允许所有来源访问，也可以指定具体的域名，如'http://example.com'
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // 允许的请求方法
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // 允许的请求头
-  
+  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // 允许的请求方法
+  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // 允许的请求头
+  // 请求的 URL 字符串（req.url）解析为一个结构化的对象
   const parsedUrl = url.parse(req.url, true);
+  console.log(parsedUrl)
   const queryObj = parsedUrl.query;
-
+  // const {data, prompt} = queryObj;
   console.log(parsedUrl.query);
   const prompt = `
   ${queryObj.data}

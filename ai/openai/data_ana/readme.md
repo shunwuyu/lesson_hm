@@ -1,6 +1,6 @@
 # 数据分析
 
 - prompt 模版
-  - langchain + nest.js 
-  - saleData + query 
   - AI 应用开发核心掌握prompt 模版设计
+  
+- Prompt Engineer 是专门研究如何与大模型高效对话的人，他们通过精确设计提示词（Prompt），让 AI 输出更符合预期的结果。该角色需要理解模型原理、业务需求与语言表达技巧，并善于拆解任务、构建指令模板、示例和约束条件。随着 AI 普及，Prompt Engineer 在内容生成、自动化和智能产品中具备重要价值。

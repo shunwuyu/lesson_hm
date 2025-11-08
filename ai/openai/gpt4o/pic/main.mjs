@@ -6,7 +6,7 @@ dotenv.config();
 // 示例化openai 客户端 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  baseURL: 'https://api.302.ai/v1' // 转发 
+  baseURL: 'https://api.agicto.cn/v1' // 转发 
 })
 
 // 良好的编程风格
