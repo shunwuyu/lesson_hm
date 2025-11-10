@@ -13,15 +13,31 @@
     // fetch ? js主动拉取数据的方式
     // fetch 的前辈 XMLHttpRequest
     const xhr = new XMLHttpRequest(); // 实例化xhr 请求对象
+    console.log(xhr.readyState); // 请求未初始化（尚未调用 open()）
     xhr.open('GET', 'https://api.github.com/orgs/lemoncode/members', 
-    false);
+    true);
+    console.log(xhr.readyState); // 已调用 open()
     xhr.onreadystatechange = function() {
+      // LOADING 正在接收响应体
+      console.log(xhr.readyState, '////')
+      // 请求完成（整个响应已接收完毕）
       if (xhr.status == 200 && xhr.readyState == 4) {
         const data = JSON.parse(xhr.responseText);
-        console.log(data);
+        console.log(data)
+        for (let member of data) {
+          oUL.innerHTML += `
+            <li>
+              <img src="${member.avatar_url}" alt="">
+              <span>${member.login}</span>
+            </li>
+          `
+        }
       }
     }
     xhr.send()
+    // HEADERS_RECEIVED
+    //已调用 send()，且已接收到响应头
+    console.log(xhr.readyState, '////')
   </script>
 </body>
 </html>
